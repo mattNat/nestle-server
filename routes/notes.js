@@ -9,7 +9,7 @@ mongoose.Promise = global.Promise;
 const Note = require('../models/note');
 
 /* ========== GET/READ ALL ITEMS ========== */
-router.get('/notes', (req, res, next) => {
+router.get('notes', (req, res, next) => {
   const { searchTerm } = req.query;
   const { folderId } = req.query;
 
@@ -48,7 +48,7 @@ router.get('/notes', (req, res, next) => {
 });
 
 /* ========== GET/READ A SINGLE ITEM ========== */
-router.get('/notes/:id', (req, res, next) => {
+router.get('notes/:id', (req, res, next) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -70,7 +70,7 @@ router.get('/notes/:id', (req, res, next) => {
 });
 
 /* ========== POST/CREATE AN ITEM ========== */
-router.post('/notes', (req, res, next) => {
+router.post('notes', (req, res, next) => {
   console.log('req body is:', req.body);
   
   const { 
@@ -146,7 +146,7 @@ router.post('/notes', (req, res, next) => {
 });
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
-router.put('/notes/:id', (req, res, next) => {
+router.put('notes/:id', (req, res, next) => {
   const { id } = req.params;
   const { user, comment, date } = req.body;
 
@@ -191,7 +191,7 @@ router.put('/notes/:id', (req, res, next) => {
 });
 
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
-router.delete('/notes/:id', (req, res, next) => {
+router.delete('notes/:id', (req, res, next) => {
   const { id } = req.params;
 
   Note.findByIdAndRemove(id)
