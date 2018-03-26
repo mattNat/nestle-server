@@ -51,4 +51,6 @@ noteSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('Note', noteSchema);
+const Note = mongoose.model('Note', noteSchema);
+// module.exports = mongoose.model('Note', noteSchema);
+module.exports = Note;
